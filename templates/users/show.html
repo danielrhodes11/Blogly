@@ -31,6 +31,23 @@ endblock %} {% block content %}
         Delete
       </button>
     </form>
+
+    <h2 class="mt-4">Posts</h2>
+
+    <ul>
+      {% for post in user.posts %}
+      <li>
+        <a href="/posts/{{ post.id}}">{{ post.title }}</a>
+        <small>{{ post.friendly_date }}</small>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <p>
+      <a href="/users/{{ user.id }}/posts/new" class="btn btn-primary"
+        >Add Post</a
+      >
+    </p>
   </div>
 </div>
 
