@@ -12,5 +12,13 @@ content %}
   <small>By {{ post.user.full_name }} on {{ post.friendly_date }}</small>
 </p>
 
-<a href="/users">Go to users page</a>
-{% endfor %} {% endblock %}
+{% if post.tags %}
+<p>
+  <b>Tags:</b>
+  {% for tag in post.tags %}
+  <a href="/tags/{{ tag.id }}"
+    ><i class="badge badge-primary">{{ tag.name }}</i></a
+  >
+  {% endfor %}
+</p>
+{% endif %} {% endfor %} {% endblock %}
